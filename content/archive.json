@@ -1,0 +1,190 @@
+{
+  "issues": [
+    {
+      "number": 1,
+      "date": "2026-08-14",
+      "pages": 10,
+      "file": "great-awakening-issue-01-2026-08-14.pdf",
+      "champions": [
+        "Peter Manseau",
+        "Rachel McBride Lindsey",
+        "David Morgan",
+        "Sally M. Promey",
+        "Courtney Bender",
+        "Leigh Eric Schmidt",
+        "D. W. Pasulka",
+        "Clément Chéroux",
+        "Valérie Rousseau",
+        "Gregory J. Harris",
+        "David Levi Strauss",
+        "Lesley A. Martin",
+        "Brendan Embser",
+        "Sean O'Hagan"
+      ]
+    }
+  ],
+  "champions": {
+    "Peter Manseau": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Smithsonian National Museum of American History"
+    },
+    "Rachel McBride Lindsey": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Saint Louis University"
+    },
+    "David Morgan": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Duke University"
+    },
+    "Sally M. Promey": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Yale University"
+    },
+    "Courtney Bender": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Columbia University"
+    },
+    "Leigh Eric Schmidt": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Washington University in St. Louis"
+    },
+    "D. W. Pasulka": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "University of North Carolina Wilmington"
+    },
+    "Clément Chéroux": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "The Museum of Modern Art, New York"
+    },
+    "Valérie Rousseau": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "American Folk Art Museum, New York"
+    },
+    "Gregory J. Harris": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "High Museum of Art, Atlanta"
+    },
+    "David Levi Strauss": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Independent, New York"
+    },
+    "Lesley A. Martin": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Printed Matter, Inc., New York"
+    },
+    "Brendan Embser": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "Aperture, New York"
+    },
+    "Sean O'Hagan": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "institution": "The Guardian and The Observer"
+    }
+  },
+  "openCalls": {
+    "Guggenheim Fellowship": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": "2026-09-15",
+      "tier": "best"
+    },
+    "Alicia Patterson Fellowship": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": "2026-10-01",
+      "tier": "best"
+    },
+    "Hasselblad Foundation Photo Book Grants": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "best"
+    },
+    "PhMuseum 2026 Women Photographers Grant": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": "2026-10-10",
+      "tier": "open"
+    },
+    "Review Santa Fe": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "open"
+    },
+    "Dummy Award 2027": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "LUMA Rencontres Dummy Book Award 2027": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "Images Vevey Book Award 2027/28": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "Aperture Portfolio Prize 2027": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": "2027-01-11",
+      "tier": "soon"
+    },
+    "APhF Dummy Award feat. Chose Commune": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "Landskrona Foto & Breadfield Dummy Award 2027": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "Encontros da Imagem Photobook Award 2027": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "PhMuseum 2027 Photography Grant": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "LensCulture Photobook Prize": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": null,
+      "tier": "soon"
+    },
+    "Paris Photo–Aperture PhotoBook Awards": {
+      "firstIssue": 1,
+      "lastIssue": 1,
+      "deadline": "2026-09-04",
+      "tier": "notyet"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "great-awakening-newsletter",
+  "version": "1.0.0",
+  "description": "Twice-weekly PDF newsletter: photography grants, photobook prizes and champions, ranked against one project.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lktasl999/photo-grants-and-advocates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lktasl999/photo-grants-and-advocates/issues"
+  },
+  "homepage": "https://github.com/lktasl999/photo-grants-and-advocates#readme",
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "pdfjs-dist": "^4.0.379",
+    "playwright": "^1.49.1"
+  },
+  "private": true,
+  "type": "module"
+}
