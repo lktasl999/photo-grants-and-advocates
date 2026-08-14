@@ -31,13 +31,13 @@ const TIERS = [
   },
   {
     key: 'open',
-    label: 'Open now',
-    note: 'Accepting entries as this issue goes out.',
+    label: 'Open now, or opening within weeks',
+    note: 'Accepting entries as this issue goes out, or due to open before the next few issues are through.',
   },
   {
     key: 'soon',
-    label: 'Opening soon — book and dummy awards',
-    note: 'Not open yet. Dates given are the expected cycle, anchored to the previous round. These are the core category for a book that does not exist in print yet.',
+    label: 'Opening soon',
+    note: 'Not open yet. Dates given are the expected cycle, anchored to the previous round. Grants, fellowships, book and dummy awards, and image competitions together — diary the ones worth preparing for.',
   },
   {
     key: 'notyet',
@@ -45,6 +45,16 @@ const TIERS = [
     note: 'Real targets for this project, but not on this round. Listed so the timing decision gets made deliberately rather than by default.',
   },
 ];
+
+/** Accent is reserved for the urgent deadline flag alone; the standing/new
+ *  markers use ink and grey so the accent stays sparing. */
+function statusBadge(item) {
+  return item.isNew
+    ? '<span class="badge badge--new">New</span>'
+    : `<span class="badge badge--standing">Standing${
+        item.sinceIssue ? ` · since ${String(item.sinceIssue).padStart(2, '0')}` : ''
+      }</span>`;
+}
 
 function badges(call, todayIso) {
   const out = [];
@@ -55,10 +65,13 @@ function badges(call, todayIso) {
         `<span class="badge badge--flag">Closes in ${days} day${days === 1 ? '' : 's'}</span>`
       );
     }
+  } else if (call.flagLabel) {
+    // Imminent, but the organiser has not published an exact date yet.
+    out.push(`<span class="badge badge--flag">${esc(call.flagLabel)}</span>`);
   }
-  if (call.carry) out.push('<span class="badge badge--carry">Carried over</span>');
+  out.push(statusBadge(call));
   if (call.tier === 'notyet') out.push('<span class="badge badge--notyet">Not eligible yet</span>');
-  return out.length ? `<div class="badges">${out.join('')}</div>` : '';
+  return `<div class="badges">${out.join('')}</div>`;
 }
 
 function deadlineValue(call) {
@@ -109,9 +122,12 @@ function callBlock(call, rank, todayIso) {
 function champBlock(c) {
   return `
 <div class="champ">
-  <h3>${esc(c.name)}</h3>
+  <div class="entry-top">
+    <h3>${esc(c.name)}</h3>
+    <div class="badges">${statusBadge(c)}</div>
+  </div>
   <p class="role">${esc(c.role)}${c.role ? ' — ' : ''}<span class="inst">${esc(c.institution)}</span></p>
-  ${c.returning && c.changed
+  ${c.changed
     ? `<div class="meta-note" style="margin-top:2.2mm">What changed: ${esc(c.changed)}</div>`
     : ''}
   <p class="why">${esc(c.why)}</p>
@@ -129,7 +145,8 @@ function champBlock(c) {
 function block(section, html, opts = {}) {
   const attrs =
     ` data-block data-section="${esc(section)}"` +
-    (opts.keepWithNext ? ' data-keep-next="1"' : '');
+    (opts.keepWithNext ? ' data-keep-next="1"' : '') +
+    (opts.keepWithPrev ? ' data-keep-prev="1"' : '');
   const out = html.replace(/^\s*<div/, `<div${attrs}`);
   if (out === html) throw new Error('block() expected the HTML to start with a <div>');
   return out;
@@ -231,7 +248,8 @@ export function renderHtml({ issue, openCalls, openCallsIntro, openCallsNote, ch
   blocks.push(
     block(
       S2,
-      `<div class="signoff">Next issue Monday. Open calls are re-checked every run; anything still live and still relevant is carried over rather than dropped, so nothing important falls off the desk between issues. Champions already sent are not repeated unless their fit has changed.</div>`
+      `<div class="signoff">Next issue Thursday. This is a reminder feed, not a discovery feed: every open call still live and every champion still worth approaching is repeated in full each issue, badged Standing, so nothing important quietly falls off the desk while you are not acting on it. Genuinely new finds are badged New. Anything only leaves the list when its deadline has passed or its fit no longer holds.</div>`,
+      { keepWithPrev: true }
     )
   );
 

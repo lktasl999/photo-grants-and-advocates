@@ -71,6 +71,17 @@ export function paginateInBrowser({ headerLeft, footerLeft }) {
       ) {
         pulled.unshift(body.removeChild(body.lastElementChild));
       }
+      // A block marked keep-prev must not open a page on its own — drag the
+      // preceding block across with it, so a short sign-off never strands
+      // itself on an otherwise empty final page.
+      if (
+        !pulled.length &&
+        node.getAttribute('data-keep-prev') === '1' &&
+        body.lastElementChild &&
+        body.children.length > 1
+      ) {
+        pulled.unshift(body.removeChild(body.lastElementChild));
+      }
       body = makePage(sec.name);
       for (const p of pulled) body.appendChild(p);
       body.appendChild(node);

@@ -12,6 +12,27 @@ Unpublished, expected 2027 from Loose Joints. That contract matters when ranking
 — awards that pay out in a *publishing contract* may conflict with it, while
 unrestricted or production money does not.
 
+## Standing editorial rules
+
+These are owner instructions, not suggestions. They override any default habit.
+
+1. **Eligibility.** The owner is male. Never list an award, grant or competition
+   restricted to women or non-binary applicants only — the Inge Morath Award,
+   the FotoEvidence W Award, the PhMuseum Women Photographers Grant, Firecracker,
+   the Sonntag Grant. General or open eligibility is fine. `build.mjs` warns if
+   one reappears, but the check is a backstop, not the rule.
+2. **Resurface, don't discard.** This is a reminder feed, not a discovery feed.
+   Every open call still live and every champion still relevant is repeated *in
+   full* in every issue, badged "Standing"; first appearances are badged "New".
+   The owner may not act on something for months, so keeping it in view matters
+   more than novelty. Something leaves the list only when its deadline has
+   passed or its fit no longer holds — set `retired: true` for that.
+3. **Scope of Open Calls.** Not limited to photobook prizes. Include anything
+   the project, or single images from it, could be submitted to: single-image
+   and portfolio competitions, documentary grants and fellowships, editorial and
+   magazine awards. Apply the same fit ranking and Best Fit framing across all
+   of it.
+
 ## Owner preferences
 
 - **Timezone: US Eastern.** Schedule anything against Eastern local time.

@@ -4,31 +4,37 @@
  * This is the only file you normally edit between runs. Update `issue`,
  * `openCalls` and `champions`, then run `npm run build`.
  *
+ * Standing rules
+ * --------------
+ * 1. ELIGIBILITY. Do not list anything restricted to women or non-binary
+ *    applicants only (Inge Morath Award, FotoEvidence W Award, PhMuseum Women
+ *    Photographers Grant, Firecracker, Sonntag Grant). General or open
+ *    eligibility is fine. The build warns if one slips back in.
+ * 2. RESURFACE, DON'T DISCARD. This is a reminder feed. Anything still relevant
+ *    stays in the list every issue and is badged "Standing"; first appearances
+ *    are badged "New". Set `retired: true` to drop something for good — a
+ *    passed deadline, or a fit that no longer holds.
+ * 3. SCOPE. Open Calls is not limited to photobook prizes. Any grant,
+ *    fellowship or competition the project — or single images from it — could
+ *    be submitted to belongs here: portfolio and single-image competitions,
+ *    documentary grants and fellowships, editorial awards.
+ *
  * Field notes
  * -----------
  * openCalls[].tier      'best' | 'open' | 'soon' | 'notyet'
- *                       'best'  -> Best Fit block at the top of the section
- *                       'open'  -> open right now
- *                       'soon'  -> not open yet, next cycle expected
- *                       'notyet'-> real prize, project not eligible this cycle
- * openCalls[].deadline  ISO date 'YYYY-MM-DD' when known. The build computes
- *                       the 60-day flag from this automatically. Use null when
- *                       the date is only an expectation and put the prose in
- *                       `deadlineNote`.
- * openCalls[].carry     true -> renders a "CARRIED OVER" marker. Use for things
- *                       worth keeping front of mind across issues.
- * openCalls[].confirmed false -> renders a small "verify" mark. Use when the
- *                       date/fee came from a secondary source.
- *
- * champions[].returning true -> allowed to repeat a name already in
- *                       archive.json. Requires `changed` explaining what is new.
+ * openCalls[].deadline  ISO 'YYYY-MM-DD' when known; the 60-day flag is
+ *                       computed from it. null when it is only an expectation —
+ *                       put the prose in `deadlineNote`.
+ * openCalls[].confirmed false -> prints a "confirm on the official page" note.
+ * champions[].changed   Prints a "What changed" line. Use when a standing
+ *                       name's fit has shifted.
  */
 
 export const issue = {
-  number: 1,
-  date: '2026-08-14',
-  dayLabel: 'Friday 14 August 2026',
-  kicker: 'Test run',
+  number: 2,
+  date: '2026-08-17',
+  dayLabel: 'Monday 17 August 2026',
+  kicker: '',
   project:
     'A documentary photobook on American belief systems, New Age culture, and the line between staged and real imagery. Unpublished; expected 2027 from Loose Joints.',
 };
@@ -38,10 +44,24 @@ export const issue = {
  * ------------------------------------------------------------------ */
 
 export const openCallsIntro =
-  'Ranked against one project, not in the abstract. The ordering weights three things in order: whether unpublished work, dummies or work-in-progress are accepted; whether the selector has a record with religion, belief, mysticism or American vernacular culture; and whether the prize is built for documentary or long-form photobooks rather than single images. Anything closing within 60 days is flagged whatever its rank.';
+  'Every grant, fellowship, prize and competition the project could be submitted to — book awards, documentary grants, portfolio and single-image competitions alike. Ranked against one project, not in the abstract: first, whether unpublished work, dummies or work-in-progress are accepted; second, whether the selector has a record with religion, belief, mysticism or American vernacular culture; third, whether it is built for documentary or long-form work. Anything closing within 60 days is flagged whatever its rank. Nothing drops off this list because it appeared last time — everything still live is still here.';
 
 export const openCalls = [
   /* ---------------------------- BEST FIT ---------------------------- */
+  {
+    tier: 'best',
+    name: 'W. Eugene Smith Grant in Humanistic Photography',
+    edition: '2026 cycle',
+    org: 'W. Eugene Smith Memorial Fund',
+    deadline: '2026-10-12',
+    deadlineNote: 'Deadline is 11.59pm EST on Monday 12 October 2026.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Open internationally. Submit a biography, project description, detailed proposal and up to 40 images. $67,500 awarded in total: a $30,000 main grant plus two $10,000 finalist grants. The Howard Chapnick Grant runs on the same deadline.',
+    link: 'https://www.smithfund.org/eugene-smith-grant',
+    why: 'The strongest fit currently open, and new to this list. It funds unfinished work outright — a proposal plus up to 40 images is exactly a book in progress — and the remit is the long-form humanistic photo essay rooted in documentary, which is criterion three almost verbatim. The fund names cultural issues alongside social and political ones, so American belief is squarely inside its brief rather than an awkward fit. At $30,000 with no publication claim attached, it also stacks cleanly with the Loose Joints contract.',
+    confirmed: true,
+  },
   {
     tier: 'best',
     name: 'Guggenheim Fellowship',
@@ -53,7 +73,7 @@ export const openCalls = [
     eligibility:
       'Citizens and permanent residents of the US and Canada. Photography is a standing category. Aimed at applicants with a substantial record of prior achievement; there is no requirement that the proposed work be finished or published.',
     link: 'https://www.gf.org/program/how-to-apply',
-    why: 'The cleanest hit on the top criterion. The fellowship funds work in progress and asks for no published outcome, so a book still a year from release is an asset rather than a disqualifier. The money is unrestricted and carries no publisher attached to it, which means it cannot collide with the Loose Joints contract the way a dummy prize might. Photography has been a named category for decades with a long line of American documentary fellows.',
+    why: 'Still the cleanest hit on the top criterion, and now the most urgent thing on the list. The fellowship funds work in progress and asks for no published outcome, so a book a year from release is an asset rather than a disqualifier. Unrestricted money with no publisher attached, so it cannot collide with the Loose Joints contract. Photography has been a named category for decades with a long line of American documentary fellows.',
     confirmed: true,
   },
   {
@@ -70,8 +90,58 @@ export const openCalls = [
     why: 'Takes unpublished photographs on its face and funds the fieldwork rather than the artefact, which is the right shape for a book still being made. American belief systems sit squarely inside "subjects of public interest", and the fellowship rewards depth over output. Like the Guggenheim it makes no claim on publication rights, so it stacks with an existing book deal instead of competing with it.',
     confirmed: true,
   },
+
+  /* --------------------------- OPEN NOW ----------------------------- */
   {
-    tier: 'best',
+    tier: 'open',
+    name: 'Sony World Photography Awards 2027',
+    edition: '20th edition — Series and Single Image competitions',
+    org: 'World Photography Organisation',
+    deadline: '2027-01-12',
+    deadlineNote:
+      'Series competition closes 12 January 2027, 1pm GMT. Single Image closes 5 January 2027. Entries have been open since 1 June 2026.',
+    fee: 'Free',
+    eligibility:
+      'Open to all entrants over 18, worldwide. Series (formerly Professional) takes a cohesive series of 5 to 10 images per category; categories include Documentary Projects, Portraiture and Creative Practice. Single Image (formerly Open) takes individual frames.',
+    link: 'https://www.worldphoto.org/sony-world-photography-awards',
+    why: 'Free, open now, and the first entry here that suits individual frames as well as the whole. A 5–10 image cut is a different edit from a book sequence and worth making anyway — it forces the strongest pictures to stand alone. Ranked below the grants because it pays in profile rather than production money and the jury is broad rather than specialist, but there is no cost to entering and Documentary Projects is the right category. Creative Practice is the home for anything openly constructed.',
+    confirmed: true,
+  },
+
+  /* -------------------------- OPENING SOON -------------------------- */
+  {
+    tier: 'open',
+    name: 'The Alexia Grants',
+    edition: 'Professional Grant and themed strands',
+    org: 'The Alexia Foundation, Syracuse University',
+    deadline: null,
+    flagLabel: 'Opens mid-September',
+    deadlineNote:
+      'The application window runs roughly mid-September to early October, with judging in early November and winners announced mid-November — so this opens within weeks of this issue and closes inside the 60-day horizon. Exact dates are not yet posted; set a reminder for the first week of September.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Photographers and visual journalists of any nationality may apply. The main Professional Grant carries $20,000 to produce the proposed project plus Sony camera and lens. Additional themed strands and an Emerging Photographer Grant run alongside it. Applications require a synopsis, proposal and CV.',
+    link: 'https://www.alexiafoundation.org/',
+    why: 'The only entry on this list whose selectors have named faith as a subject they are looking for, which is criterion two met head-on rather than inferred. It is also a production grant for a proposed project, so unfinished work is the expectation, and $20,000 with no publication claim sits cleanly beside the Loose Joints contract. The one caveat is framing: Alexia funds visual journalism that "inspires change", so the application has to lead with what the work reveals about American belief rather than with the book as an object. Reporting on the grant\'s exact structure varies between secondary sources — check the figures on the site before building a budget around them.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
+    name: 'CatchLight Global Fellowship',
+    edition: '2027 cycle',
+    org: 'CatchLight',
+    deadline: null,
+    deadlineNote:
+      'Expected to open around November 2026 and close mid-December. The 2026 round closed 15 December 2025.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Visual storytellers worldwide. Three fellowships of $30,000 each, for work that functions as a tool for information, connection and transformation in a community.',
+    link: 'https://www.catchlight.io/how-to-apply-global-fellowship',
+    why: 'Serious money for work in progress, with no publication claim — the same clean profile as the Guggenheim and Alicia Patterson. The framing is community-facing, so the application would need to lead on the communities photographed rather than on the book as an art object. That is a positioning problem, not an eligibility one.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
     name: 'Hasselblad Foundation Photo Book Grants',
     edition: '2027 round',
     org: 'Hasselblad Foundation, Gothenburg',
@@ -82,42 +152,38 @@ export const openCalls = [
     eligibility:
       'Open internationally to professionals working with photography — photographers, artists, curators, researchers and writers. Applications from individuals or groups. Two grants of SEK 100,000 each.',
     link: 'https://www.hasselbladfoundation.org/en/stipend/photo-book-fellowships/',
-    why: 'The rare book award that pays out in production money rather than a publishing contract, which makes it one of the few that can co-fund a Loose Joints title instead of trying to replace it. Explicitly scoped to the development and publication of a photobook, so an unpublished manuscript is exactly what it is looking for. The international opening from 2025 removed the Nordic restriction that used to rule this out.',
+    why: 'The rare book award that pays out in production money rather than a publishing contract, which makes it one of the few that can co-fund a Loose Joints title instead of trying to replace it. Explicitly scoped to the development and publication of a photobook, so an unpublished manuscript is exactly what it is looking for. Dropped out of Best Fit this issue only because the W. Eugene Smith grant is open now and this is not.',
     confirmed: true,
   },
-
-  /* --------------------------- OPEN NOW ----------------------------- */
   {
-    tier: 'open',
-    name: 'PhMuseum 2026 Women Photographers Grant',
-    edition: '',
-    org: 'PhMuseum, Bologna',
-    deadline: '2026-10-10',
-    deadlineNote: 'Reduced entry fee until 19 September 2026.',
-    fee: '€25 until 19 September, €30 until 10 October',
+    tier: 'soon',
+    name: 'Magnum Foundation Counter Histories',
+    edition: '2027 cycle',
+    org: 'Magnum Foundation',
+    deadline: null,
+    deadlineNote: 'Cycles have typically opened in the first quarter. Confirm on the programme page.',
+    fee: 'None',
     eligibility:
-      'Women and non-binary photographers worldwide. Ongoing and unpublished projects accepted. €10,000 in cash prizes assigned by an independent jury.',
-    link: 'https://phmuseum.com/grants/2026-women-photographers-grant',
-    why: 'Accepts work-in-progress series, and PhMuseum juries reliably pick long-form documentary over single-image work. Confirm the eligibility definition applies to you before paying the fee — this is the only entry here with an identity-based restriction.',
+      'International. Up to twelve grants of up to $10,000, plus additional completion funds, for projects that creatively reframe the past to engage with questions of the present and future.',
+    link: 'https://www.magnumfoundation.org/counter-histories',
+    why: 'The brief — reframing the past to ask something about the present — is a good description of a project on American belief, where nineteenth-century spiritualism and present-day New Age practice are continuous rather than separate stories. Magnum Foundation also explicitly supports experimental documentary approaches, which matters for work that plays the staged against the real rather than pretending the distinction is settled.',
     confirmed: false,
   },
   {
-    tier: 'open',
-    name: 'Review Santa Fe',
-    edition: '25th edition, 24–26 October 2026',
-    org: 'CENTER, Santa Fe',
+    tier: 'soon',
+    name: 'World Press Photo Contest 2027',
+    edition: '',
+    org: 'World Press Photo Foundation',
     deadline: null,
     deadlineNote:
-      'The festival runs 24–26 October 2026. The next grants and awards cycle, including the Project Development Grant, is expected to close around 28 February 2027, matching the 2026 cycle.',
-    fee: 'Verify on the call page',
+      'Expected to close mid-January 2027. The 2026 contest closed 17 January, 13.00 CET.',
+    fee: 'Free',
     eligibility:
-      'The Project Development Grant funds a fine-art, reportage or documentary work-in-progress. Review Santa Fe itself is a juried portfolio review.',
-    link: 'https://centersantafe.org/callsforentry',
-    why: 'The Project Development Grant is written for exactly this stage of a project. The more valuable half is the review itself: three days in front of US editors, curators and publishers is champion-building as much as it is grant-seeking, and it feeds Part 2 of this newsletter directly.',
-    confirmed: false,
+      'Professional photojournalists worldwide. Three formats: Singles, Stories, and Long-Term Projects. Long-Term Projects requires 24–30 single frames on one theme, drawn from at least three different years, with a minimum of six frames shot in the most recent year.',
+    link: 'https://www.worldpressphoto.org/contest/entry-rules',
+    why: 'Read the entry rules before you invest any time in this one. Long-Term Projects is the right shape and free to enter, but World Press Photo runs a strict code of ethics against staging and a verification process that requests camera-original files from finalists. A project whose subject is the line between staged and real is fine here only if the pictures themselves are found rather than directed — any constructed frame is a disqualification, not a talking point. If the work is straight documentary, enter; if any of it is made rather than observed, this is the wrong door and Sony\'s Creative Practice category is the right one.',
+    confirmed: true,
   },
-
-  /* ------------------- BOOK & DUMMY AWARDS, NEXT CYCLE --------------- */
   {
     tier: 'soon',
     name: 'Dummy Award 2027',
@@ -130,7 +196,7 @@ export const openCalls = [
     eligibility:
       'Any photographer, artist or designer worldwide. Unpublished photobook projects submitted as a physical dummy. Around 50 books are shortlisted and exhibited at international photography events; one project is published by MAS.',
     link: 'https://dummyaward.org/',
-    why: 'The largest dummy award in the field and the purest hit on criteria one and three. The value here is not really the prize: a shortlisting puts the physical dummy in front of the photobook world a full year before the Loose Joints release, which is the best possible warm-up for the book. Note the winner\'s prize is publication — see the conflict note at the end of this section.',
+    why: 'The largest dummy award in the field and the purest hit on criteria one and three. The value here is not really the prize: a shortlisting puts the physical dummy in front of the photobook world a full year before the Loose Joints release. Note the winner\'s prize is publication — see the conflict note at the end of this section.',
     confirmed: false,
   },
   {
@@ -177,6 +243,50 @@ export const openCalls = [
   },
   {
     tier: 'soon',
+    name: 'Photolucida Critical Mass 2027',
+    edition: '',
+    org: 'Photolucida, Portland',
+    deadline: null,
+    deadlineNote:
+      'Expected to close early July 2027. The 2026 round closed 7 July 2026 — missed by five weeks.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Open to photographers at all levels worldwide. A portfolio of 10 images, reviewed by a pre-screening panel and then by up to 200 international photography professionals for the Top 200 and Top 50.',
+    link: 'https://www.photolucida.org/critical-mass/',
+    why: 'The most efficient introduction machine in American photography: one 10-image portfolio is seen by up to 200 curators, editors and publishers, which is Part 2 of this newsletter happening automatically. Book and exhibition awards sit on top of that, but the reviewer exposure is the real prize. Missed this year — put it in the diary now for early summer 2027, which lands just as the Loose Joints book is coming into view.',
+    confirmed: true,
+  },
+  {
+    tier: 'soon',
+    name: 'Review Santa Fe',
+    edition: '25th edition, 24–26 October 2026',
+    org: 'CENTER, Santa Fe',
+    deadline: null,
+    deadlineNote:
+      'The festival runs 24–26 October 2026. The next grants and awards cycle, including the Project Development Grant, is expected to close around 28 February 2027, matching the 2026 cycle.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'The Project Development Grant funds a fine-art, reportage or documentary work-in-progress. Review Santa Fe itself is a juried portfolio review.',
+    link: 'https://centersantafe.org/callsforentry',
+    why: 'The Project Development Grant is written for exactly this stage of a project. The more valuable half is the review itself: three days in front of US editors, curators and publishers is champion-building as much as it is grant-seeking, and it feeds Part 2 of this newsletter directly.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
+    name: 'Getty Images Editorial Photography Grant',
+    edition: '',
+    org: 'Getty Images',
+    deadline: null,
+    deadlineNote: 'Cycle dates not confirmed. Check the grants site before planning around it.',
+    fee: 'None',
+    eligibility:
+      'Awards from $5,000 to $15,000 for editorial photographers. Winners are invited to license work through the Getty Images catalogue — read that term against your own licensing plans and the Loose Joints agreement.',
+    link: 'https://grants.gettyimages.com/en/grants/editorial-photography-grant',
+    why: 'Production money for documentary work in progress, which is the right category. Ranked here rather than higher because the licensing invitation attached to the award is a real consideration for a project whose pictures are promised to a book, and because Getty\'s editorial remit skews to news rather than long-form cultural work.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
     name: 'APhF Dummy Award feat. Chose Commune',
     edition: 'Athens Photo Festival 2027',
     org: 'Athens Photo Festival',
@@ -188,6 +298,20 @@ export const openCalls = [
       'Juried competition open to unpublished photobook dummies worldwide. The winner receives a publishing contract with Chose Commune.',
     link: 'https://photofestival.gr/dummy-award/',
     why: 'Straightforward on criteria one and three, and Chose Commune has real taste in this register. The prize is a contract, so the conflict note applies — worth entering for the shortlist exposure if your contract permits it.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
+    name: 'PhMuseum 2027 Photography Grant',
+    edition: '15th edition',
+    org: 'PhMuseum, Bologna',
+    deadline: null,
+    deadlineNote: 'Expected to close around February 2027. The 2026 edition closed 19 February.',
+    fee: 'Around €25–30, tiered by entry date',
+    eligibility:
+      'Open worldwide to ongoing and unpublished projects, all genders. €10,000 in cash prizes.',
+    link: 'https://phmuseum.com/grants',
+    why: 'Appetite for long-form documentary and no eligibility restriction. Modest money, but the shortlist gets real circulation in Europe. Note that PhMuseum\'s separate Women Photographers Grant is out of scope for you and has been removed from this list.',
     confirmed: false,
   },
   {
@@ -221,31 +345,47 @@ export const openCalls = [
   },
   {
     tier: 'soon',
-    name: 'PhMuseum 2027 Photography Grant',
-    edition: '15th edition',
-    org: 'PhMuseum, Bologna',
-    deadline: null,
-    deadlineNote: 'Expected to close around February 2027. The 2026 edition closed 19 February.',
-    fee: 'Around €25–30, tiered by entry date',
-    eligibility: 'Open worldwide to ongoing and unpublished projects. €10,000 in cash prizes.',
-    link: 'https://phmuseum.com/grants',
-    why: 'The unrestricted sibling of the Women Photographers Grant above, with the same appetite for long-form documentary and no identity restriction. Modest money, but the shortlist gets real circulation in Europe.',
-    confirmed: false,
-  },
-  {
-    tier: 'soon',
     name: 'LensCulture Photobook Prize',
     edition: '2027 edition',
     org: 'LensCulture and Nazraeli Press',
     deadline: null,
     deadlineNote:
-      'The inaugural 2026 edition closed 12 August 2026 — two days before this issue. Watch for the 2027 call.',
+      'The inaugural 2026 edition closed 12 August 2026. Watch for the 2027 call.',
     fee: 'Verify on the call page',
     eligibility:
       'An unpublished project. No dummy required: 20–30 images, a project statement and a short biography. The winning project is designed, printed and distributed by Nazraeli Press.',
     link: 'https://www.lensculture.com/photo-competitions/photobook',
-    why: 'Listed because the entry requirement is unusually light — no dummy, just a sequence and a statement — which makes it the cheapest test of whether the edit reads to strangers. Missed by two days this year; diary the 2027 call. Prize is publication, so the conflict note applies.',
+    why: 'The entry requirement is unusually light — no dummy, just a sequence and a statement — which makes it the cheapest test of whether the edit reads to strangers. Prize is publication, so the conflict note applies.',
     confirmed: true,
+  },
+  {
+    tier: 'soon',
+    name: 'FotoEvidence Book Award',
+    edition: '2027 cycle',
+    org: 'FotoEvidence, Montpellier',
+    deadline: null,
+    deadlineNote: 'Cycles have typically opened in the winter. Confirm on the award page.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Documentary photographers worldwide. The Book Award recognises work addressing a violation of human rights, a significant injustice or an assault on human dignity; the winner is published by FotoEvidence.',
+    link: 'https://fotoevidence.com/book-award',
+    why: 'Listed for completeness and ranked low honestly: the remit is human-rights violation and injustice, and a project about American belief is not that unless the work turns on coercion or harm within these communities. If it does, this rises sharply. Their companion W Award is restricted to women photographers and is therefore out of scope.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
+    name: 'The Aftermath Project',
+    edition: '2027 cycle',
+    org: 'The Aftermath Project',
+    deadline: null,
+    deadlineNote:
+      'The 2026 cycle had not been confirmed at the time of writing. Their newsletter is the reliable announcement route.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'International. One grant of $25,000 with four finalist grants of $5,000, for work on the aftermath of conflict. A special strand, 1492/1619 American Aftermaths, has addressed American historical reckoning.',
+    link: 'https://theaftermathproject.org/',
+    why: 'Ranked low on the core remit — the foundation funds post-conflict recovery, and American New Age culture is not a war\'s aftermath. The exception is the 1492/1619 American Aftermaths strand, which is explicitly about the long consequences of American history; if that strand runs again and the work engages settler religion, revivalism or dispossession, the fit changes completely. Worth watching for that reason alone.',
+    confirmed: false,
   },
 
   /* ----------------- NOT ELIGIBLE THIS CYCLE ------------------------ */
@@ -267,9 +407,9 @@ export const openCalls = [
 ];
 
 export const openCallsNote = {
-  title: 'One conflict to check before entering anything',
+  title: 'Two things to settle before entering anything',
   body:
-    'Several of the strongest dummy awards pay out in a publishing contract — Chose Commune at Athens, MAS at Cologne, Breadfield at Landskrona, Nazraeli at LensCulture. With a 2027 Loose Joints book already contracted, those prizes may be unenterable, or may need the publisher\'s sign-off, depending on the option and exclusivity clauses in your agreement. Read that clause once and the whole list resolves itself. The awards that carry cleanly alongside a signed publisher are the ones giving unrestricted or production money: the Guggenheim, Alicia Patterson, the Hasselblad book grants, the Images Vevey co-publishing tier, and the LUMA Rencontres production budget. Where a shortlisting rather than a win is the real prize, entering may still be worth it — but ask Loose Joints first, not after.',
+    'First, the publisher clause. Several dummy awards pay out in a publishing contract — Chose Commune at Athens, MAS at Cologne, Breadfield at Landskrona, Nazraeli at LensCulture. With a 2027 Loose Joints book contracted, those may be unenterable or need the publisher\'s sign-off depending on your option and exclusivity terms. Read that clause once and most of this list resolves itself. The awards that carry cleanly alongside a signed publisher are the ones giving unrestricted or production money: W. Eugene Smith, the Guggenheim, Alicia Patterson, CatchLight, Hasselblad, the Images Vevey co-publishing tier, and the LUMA Rencontres production budget. Second, the staging question. Competitions rooted in photojournalism — World Press Photo above all — forbid directed or constructed pictures and will ask for camera originals. A project about the line between staged and real needs you to know which side each individual frame sits on before you submit it anywhere, because the answer decides which of these doors is open.',
 };
 
 /* ------------------------------------------------------------------ *
@@ -277,7 +417,7 @@ export const openCallsNote = {
  * ------------------------------------------------------------------ */
 
 export const championsIntro =
-  'People who could credibly carry this book at release. A running list: names sent in a previous issue are not repeated unless something about their fit has changed. Contact routes given here are public and professional — institutional pages, departmental listings, public bylines.';
+  'People who could credibly carry this book at release. A standing list: everyone still relevant is repeated every issue, because these are relationships to build slowly rather than leads to action once. New names each issue are badged as such. Contact routes are public and professional — institutional pages, departmental listings, public bylines.';
 
 export const champions = [
   /* ---------------- Scholars of American religion & visual culture --- */
@@ -323,11 +463,36 @@ export const champions = [
   },
   {
     group: 'Scholars — American religion, visual & material culture',
+    name: 'T. M. Luhrmann',
+    role: 'Professor of Anthropology',
+    institution: 'Stanford University',
+    why: 'New this issue, and close to the centre of the project. When God Talks Back (Knopf, 2012) is an ethnography of American evangelicals learning to hear God speak — her argument is that belief is not a proposition people accept but a skill they practise until the invisible becomes real to the senses. That is the same problem a photograph of a believer poses: whether what the camera records is performance, training or experience, and whether the distinction survives contact with the person. She writes for general readers and is widely reviewed, which makes her unusually useful at release.',
+    contact: 'Department of Anthropology, stanford.edu',
+    changed: null,
+  },
+  {
+    group: 'Scholars — American religion, visual & material culture',
     name: 'Leigh Eric Schmidt',
     role: 'Edward C. Mallinckrodt University Professor',
     institution: 'Washington University in St. Louis',
     why: 'Restless Souls: The Making of American Spirituality traces the long American line from Transcendentalism to the spiritual-but-not-religious present — the deep history underneath contemporary New Age culture. He also writes as an essayist and reviewer for general readers, so he is one of the few scholars here who might actually review the book somewhere outside the academy.',
     contact: 'Faculty page, religiousstudies.wustl.edu',
+  },
+  {
+    group: 'Scholars — American religion, visual & material culture',
+    name: 'Kathryn Lofton',
+    role: 'Professor of Religious Studies, American Studies and History',
+    institution: 'Yale University',
+    why: 'New this issue. Oprah: The Gospel of an Icon (2011) and Consuming Religion (2017) argue that American spirituality is inseparable from American consumer culture — that the retreat, the crystal, the self-help paperback and the wellness brand are religious objects, not degraded versions of them. For a project photographing New Age culture, that is the argument that keeps the pictures from reading as satire. She is also a fluent public writer with reach well beyond religious studies.',
+    contact: 'Department of Religious Studies, yale.edu',
+  },
+  {
+    group: 'Scholars — American religion, visual & material culture',
+    name: 'Jeffrey J. Kripal',
+    role: 'Professor of Religion',
+    institution: 'Rice University',
+    why: 'New this issue. Authors of the Impossible and Mutants and Mystics take the American paranormal seriously as a subject — visionaries, contactees, psychical research — without either debunking or endorsing, which is the same tightrope this book walks. He runs one of the few academic programmes willing to host that conversation openly, and he is unusually willing to write for non-academic outlets. Useful precisely where the material gets least respectable.',
+    contact: 'Department of Religion, rice.edu',
   },
   {
     group: 'Scholars — American religion, visual & material culture',
@@ -388,6 +553,14 @@ export const champions = [
     institution: 'Aperture, New York',
     why: 'Edited Aperture monographs for Deana Lawson, Philip Montgomery, Louis Carlos Bernal, Ming Smith and Wendy Red Star — a list that shows a consistent appetite for American documentary with a metaphysical or communal charge to it. Formerly director of exhibitions at the Walther Collection, and a contributor to The PhotoBook Review. The realistic first point of contact at Aperture.',
     contact: 'Editorial contact via aperture.org',
+  },
+  {
+    group: 'Photobook critics & editors',
+    name: 'Emma Bowkett',
+    role: 'Director of Photography, FT Weekend Magazine',
+    institution: 'Financial Times, London',
+    why: 'New this issue, and the most useful commissioning editor on the list. FT Weekend runs long documentary photo essays at length and in a register that treats belief and subculture seriously rather than as curiosity. She also sits on photobook and grant juries across Europe — including the awards in Part 1 — so she is simultaneously a route to publication, a potential judge and a champion. For a Loose Joints title with European distribution, a magazine extract timed to release is one of the highest-value things to line up.',
+    contact: 'FT Weekend Magazine, ft.com',
   },
   {
     group: 'Photobook critics & editors',

@@ -273,8 +273,12 @@ body {
   border-radius: 0.8mm;
 }
 .badge--flag { background: var(--accent); color: #FFFFFF; }
-.badge--carry { background: #F3EEE6; color: var(--ink-soft); }
+.badge--new { background: var(--ink); color: #FFFFFF; }
+.badge--standing { background: #F1EEE8; color: var(--grey); }
 .badge--notyet { background: #EDEAE4; color: var(--grey); }
+
+.champ .entry-top { gap: 5mm; }
+.champ .entry-top h3 { flex: 1; }
 
 .meta {
   display: grid;

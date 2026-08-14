@@ -42,17 +42,24 @@ that file; the important ones:
 - **`confirmed: false`** — prints a "confirm on the official page" note. Use it
   whenever a date or fee came from a secondary source rather than the organiser.
 
-## Not repeating champions
+## Resurfacing, not de-duplicating
 
-`content/archive.json` records which issue every champion was sent in. On each
-build a name already sent in an *earlier* issue is dropped, and the build prints
-what it held back. To send someone again, set `returning: true` **and** a
-`changed` note explaining what is new about their fit — the note is printed in
-the issue. Names recorded against the issue number currently being built are not
-treated as prior sends, so rebuilding an issue is idempotent.
+This is a reminder feed. Everything still relevant is repeated in full in every
+issue — the owner may not act on something for months, so keeping it in view
+beats novelty. `content/archive.json` records the issue each entry first
+appeared in, and the build uses that only to badge it:
 
-Open calls are deliberately *not* de-duplicated: a live deadline should keep
-showing up until it passes.
+- **New** — first appearance in this issue.
+- **Standing · since NN** — carried from an earlier issue, shown in full again.
+
+Nothing is ever suppressed for having appeared before. An entry leaves the list
+only by setting `retired: true` on it, which you do when a deadline has passed
+or a fit no longer holds; the build prints what it retired. Set `changed` on a
+champion to print a "What changed" line when their fit has shifted.
+
+The build also warns about two things it will not fix for you: an entry whose
+`deadline` has already passed, and an entry whose `eligibility` looks restricted
+to women or non-binary applicants (out of scope — see CLAUDE.md).
 
 ## How it is built
 

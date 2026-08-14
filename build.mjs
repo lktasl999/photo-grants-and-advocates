@@ -57,47 +57,61 @@ function loadArchive() {
 }
 
 /**
- * "Don't repeat a name already sent in a prior issue unless something new has
- * changed about their fit." Rebuilding the same issue number is idempotent —
- * names recorded against this very issue are not treated as prior sends.
+ * This is a reminder feed, not a discovery feed. Anything still relevant is
+ * resurfaced every issue; nothing is suppressed for having appeared before.
+ * Each entry is stamped `isNew` on its first appearance so genuinely new finds
+ * still stand out, and `retired: true` is the only way something leaves.
  */
-function filterChampions(list, archive) {
-  const kept = [];
-  const dropped = [];
-  for (const c of list) {
-    const prior = archive.champions[c.name];
-    const sentBefore = prior && prior.lastIssue < issue.number;
-    if (sentBefore && !c.returning) {
-      dropped.push(`${c.name} (last sent in issue ${prior.lastIssue})`);
-      continue;
-    }
-    if (sentBefore && c.returning && !c.changed) {
-      dropped.push(`${c.name} (marked returning but no "changed" note given)`);
-      continue;
-    }
-    kept.push(c);
+function markAppearances(list, archive, kind) {
+  const seen = archive[kind] || {};
+  const live = list.filter((x) => !x.retired);
+  const retired = list.filter((x) => x.retired).map((x) => x.name);
+  for (const x of live) {
+    const prior = seen[x.name];
+    x.isNew = !prior || prior.firstIssue === issue.number;
+    x.sinceIssue = prior ? prior.firstIssue : issue.number;
   }
-  return { kept, dropped };
+  return { live, retired };
+}
+
+/** The owner is male; awards restricted to women or non-binary applicants only
+ *  are out of scope. Catches anything reintroduced by a later content edit. */
+const RESTRICTED = /\b(women|woman|female|non-?binary|FLINTA)\b/i;
+const RESTRICTION_OK = /\bopen to (all|any)\b|\ball genders\b|\bno .{0,20}restriction\b/i;
+
+function checkEligibility(list) {
+  return list
+    .filter((c) => RESTRICTED.test(c.eligibility || '') && !RESTRICTION_OK.test(c.eligibility || ''))
+    .map((c) => c.name);
 }
 
 async function main() {
   const archive = loadArchive();
-  const { kept: champs, dropped } = filterChampions(champions, archive);
+  const { live: champs, retired: retiredChamps } = markAppearances(champions, archive, 'champions');
+  const { live: calls, retired: retiredCalls } = markAppearances(openCalls, archive, 'openCalls');
 
-  if (dropped.length) {
-    log('\nChampions held back (already sent, nothing new):');
-    for (const d of dropped) log('  · ' + d);
-  }
-  if (!champs.length) {
-    log('\nEvery champion in this issue has already been sent. Add new names to content/issue.mjs.');
+  const flagged = checkEligibility(calls);
+  if (flagged.length) {
+    log('\n! Check eligibility — these mention a gender restriction and may be out of scope:');
+    for (const f of flagged) log('  · ' + f);
   }
 
-  const closing = openCalls
+  const stale = calls.filter((c) => c.deadline && daysBetween(issue.date, c.deadline) < 0);
+  if (stale.length) {
+    log('\n! Deadline already passed — update or retire these:');
+    for (const c of stale) log(`  · ${c.name} (${formatDate(c.deadline)})`);
+  }
+
+  if (retiredChamps.length || retiredCalls.length) {
+    log('\nRetired this issue: ' + [...retiredCalls, ...retiredChamps].join(', '));
+  }
+
+  const closing = calls
     .filter((c) => c.deadline && daysBetween(issue.date, c.deadline) >= 0 && daysBetween(issue.date, c.deadline) <= 60)
     .map((c) => `${c.name} — ${formatDate(c.deadline)} (${daysBetween(issue.date, c.deadline)} days)`);
 
   log(`\nIssue ${issue.number} · ${issue.dayLabel}`);
-  log(`  open calls: ${openCalls.length}   champions: ${champs.length}`);
+  log(`  open calls: ${calls.length} (${calls.filter((c) => c.isNew).length} new)   champions: ${champs.length} (${champs.filter((c) => c.isNew).length} new)`);
   if (closing.length) {
     log('  flagged, closing within 60 days:');
     for (const c of closing) log('    ⚑ ' + c);
@@ -105,7 +119,7 @@ async function main() {
 
   const html = renderHtml({
     issue,
-    openCalls,
+    openCalls: calls,
     openCallsIntro,
     openCallsNote,
     champions: champs,
@@ -167,7 +181,7 @@ async function main() {
       };
     }
     archive.openCalls ||= {};
-    for (const c of openCalls) {
+    for (const c of calls) {
       const prior = archive.openCalls[c.name];
       archive.openCalls[c.name] = {
         firstIssue: prior ? prior.firstIssue : issue.number,
