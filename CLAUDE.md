@@ -45,6 +45,24 @@ These are owner instructions, not suggestions. They override any default habit.
 - **No recurring schedule is currently set up.** As of issue 01 the owner asked
   to leave the cadence manual for now. Confirm before creating one.
 
+## Standing research sources
+
+Check these every run, on top of targeted searches.
+
+- **Picter** — `picter.com` / `site.picter.com`. The submission platform behind a
+  large share of European calls (Revela'T, InCadaqués, Hasselblad, W. Eugene
+  Smith, Ian Parry, PhotoVogue, Fotofestiwal, Centre for British Photography).
+  Its call pages are the single most productive discovery source found so far;
+  issue 03 pulled the Leica Society and PhotoVogue grants from it. The domain is
+  egress-blocked, so reach it through WebSearch rather than WebFetch.
+- **Revela'T** — `revela-t.cat`. Barcelona analogue photography festival. Two
+  separate strands, and the difference matters: the **exhibition open call is
+  restricted to analogue/chemical work**, while the **portfolio review accepts
+  chemical and digital**. Confirm which applies before ranking either. Also
+  egress-blocked; use WebSearch.
+
+Owner-suggested sources get added here so they are not re-explored from scratch.
+
 ## Non-negotiable before finishing a run
 
 Render the PDF's pages to images and *actually look at them*. Confirm sections

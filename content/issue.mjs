@@ -31,9 +31,9 @@
  */
 
 export const issue = {
-  number: 2,
-  date: '2026-08-17',
-  dayLabel: 'Monday 17 August 2026',
+  number: 3,
+  date: '2026-08-20',
+  dayLabel: 'Thursday 20 August 2026',
   kicker: '',
   project:
     'A documentary photobook on American belief systems, New Age culture, and the line between staged and real imagery. Unpublished; expected 2027 from Loose Joints.',
@@ -94,23 +94,6 @@ export const openCalls = [
   /* --------------------------- OPEN NOW ----------------------------- */
   {
     tier: 'open',
-    name: 'Sony World Photography Awards 2027',
-    edition: '20th edition — Series and Single Image competitions',
-    org: 'World Photography Organisation',
-    deadline: '2027-01-12',
-    deadlineNote:
-      'Series competition closes 12 January 2027, 1pm GMT. Single Image closes 5 January 2027. Entries have been open since 1 June 2026.',
-    fee: 'Free',
-    eligibility:
-      'Open to all entrants over 18, worldwide. Series (formerly Professional) takes a cohesive series of 5 to 10 images per category; categories include Documentary Projects, Portraiture and Creative Practice. Single Image (formerly Open) takes individual frames.',
-    link: 'https://www.worldphoto.org/sony-world-photography-awards',
-    why: 'Free, open now, and the first entry here that suits individual frames as well as the whole. A 5–10 image cut is a different edit from a book sequence and worth making anyway — it forces the strongest pictures to stand alone. Ranked below the grants because it pays in profile rather than production money and the jury is broad rather than specialist, but there is no cost to entering and Documentary Projects is the right category. Creative Practice is the home for anything openly constructed.',
-    confirmed: true,
-  },
-
-  /* -------------------------- OPENING SOON -------------------------- */
-  {
-    tier: 'open',
     name: 'The Alexia Grants',
     edition: 'Professional Grant and themed strands',
     org: 'The Alexia Foundation, Syracuse University',
@@ -125,6 +108,53 @@ export const openCalls = [
     why: 'The only entry on this list whose selectors have named faith as a subject they are looking for, which is criterion two met head-on rather than inferred. It is also a production grant for a proposed project, so unfinished work is the expectation, and $20,000 with no publication claim sits cleanly beside the Loose Joints contract. The one caveat is framing: Alexia funds visual journalism that "inspires change", so the application has to lead with what the work reveals about American belief rather than with the book as an object. Reporting on the grant\'s exact structure varies between secondary sources — check the figures on the site before building a budget around them.',
     confirmed: false,
   },
+  {
+    tier: 'open',
+    name: 'LSI Photography Grant',
+    edition: '8th annual, 2026',
+    org: 'Leica Society International',
+    deadline: '2026-09-04',
+    deadlineNote:
+      'Closes 4 September 2026 OR when 200 applications are received, whichever comes first — so the real deadline may arrive early. Opened 24 July 2026. Applications run through Picter.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Open internationally. $7,500 to the recipient plus a Leica camera and lens. Submission capped at 200 applications in total.',
+    link: 'https://site.picter.com/2026-lsi-grant',
+    why: 'Found via Picter, and the most time-sensitive thing on this list: the 200-application cap means it can close weeks before the stated date, so treat it as due now rather than in September. The Leica Society funds project work rather than single frames and has no publication claim, so it sits cleanly alongside the book. Ranked below Alexia because there is no thematic affinity with belief — this is a general documentary grant that happens to be open, cheap to enter and quick to close.',
+    confirmed: false,
+  },
+  {
+    tier: 'open',
+    name: 'Sony World Photography Awards 2027',
+    edition: '20th edition — Series and Single Image competitions',
+    org: 'World Photography Organisation',
+    deadline: '2027-01-12',
+    deadlineNote:
+      'Series competition closes 12 January 2027, 1pm GMT. Single Image closes 5 January 2027. Entries have been open since 1 June 2026.',
+    fee: 'Free',
+    eligibility:
+      'Open to all entrants over 18, worldwide. Series (formerly Professional) takes a cohesive series of 5 to 10 images per category; categories include Documentary Projects, Portraiture and Creative Practice. Single Image (formerly Open) takes individual frames.',
+    link: 'https://www.worldphoto.org/sony-world-photography-awards',
+    why: 'Free, open now, and the first entry here that suits individual frames as well as the whole. A 5–10 image cut is a different edit from a book sequence and worth making anyway — it forces the strongest pictures to stand alone. Ranked below the grants because it pays in profile rather than production money and the jury is broad rather than specialist, but there is no cost to entering and Documentary Projects is the right category. Creative Practice is the home for anything openly constructed.',
+    confirmed: true,
+  },
+
+  {
+    tier: 'open',
+    name: 'PhotoVogue Global Open Call 2026',
+    edition: 'Brave New Visions: Creativity as Rebellion',
+    org: 'PhotoVogue, Condé Nast',
+    deadline: '2026-09-11',
+    deadlineNote: 'Closes 11 September 2026, 11.59pm CEST. Open since 14 May 2026.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Open internationally. Three artists share $12,000 in grants, with selected work shown through the PhotoVogue platform and festival.',
+    link: 'https://site.picter.com/photovogue-brave-new-visions-global-open-call-2026',
+    why: 'A themed call, and the theme is the question of whether making pictures can itself be an act of refusal — which a project on American belief can answer honestly without contorting itself. Ranked at the foot of the open group because PhotoVogue\'s centre of gravity is image-making and identity rather than long-form documentary, and because a themed brief means writing to someone else\'s prompt. Cheap profile with a large audience if the framing works; skip it if the statement has to be bent to fit.',
+    confirmed: false,
+  },
+
+  /* -------------------------- OPENING SOON -------------------------- */
   {
     tier: 'soon',
     name: 'CatchLight Global Fellowship',
@@ -239,6 +269,51 @@ export const openCalls = [
     eligibility: 'Worldwide. Unpublished and ongoing bodies of work.',
     link: 'https://aperture.org/calls-for-entry/portfolio-prize/',
     why: 'Free, open to work in progress, and the institution on the other end is the one most worth knowing before a documentary photobook comes out. Aperture publishes, reviews and exhibits in this exact register; an entry is cheap and the relationship compounds. Budget for the subscription requirement now so it is not a blocker in January.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
+    name: "Revela'T Portfolio Review 2027",
+    edition: '',
+    org: "Revela'T International Festival of Analogue Photography, Vilassar de Dalt, Barcelona",
+    deadline: null,
+    deadlineNote:
+      'Expected around July 2027. The 2026 round closed 30 July 2026 — three weeks before this issue. Applications run through Picter.',
+    fee: '€25 per project (€15 for Friends of Revela\'T), then a further €100 if selected',
+    eligibility:
+      'Photographers of any nationality or residence, working in chemical or digital photography — unlike the exhibition call below, this strand is not restricted to analogue. An application is 10 to 15 images, a project statement and author information. Eighteen participants are selected. One reviewed project is produced and exhibited at the following year\'s festival with installation and an artist\'s fee covered.',
+    link: 'https://revela-t.cat/en/',
+    why: 'Filed here as a champion-building exercise more than a prize. Eighteen places, eleven expert reviewers, twenty minutes one-to-one with each — three hours of concentrated contact with European curators and editors, which is Part 2 of this newsletter compressed into an afternoon. For a Loose Joints title with European distribution that reach is worth more than the exhibition. Note the fee structure is two-stage: €25 to apply, €100 more if you get in.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
+    name: "Revela'T Open Call to Exhibit 2027",
+    edition: '',
+    org: "Revela'T International Festival of Analogue Photography, Barcelona",
+    deadline: null,
+    deadlineNote:
+      'Expected to open in the autumn. The 2026 edition closed 16 November 2025. The 2026 festival itself runs 1–18 October 2026. Applications run through Picter.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Amateur, emerging and professional photographers of any nationality. Restricted to projects made in analogue or chemical photography — this is a hard gate, not a preference. Three projects are selected for exhibition; first prize carries up to €1,000 towards production and transport, plus artist fees.',
+    link: 'https://revela-t.cat/en/open-call-exhibit/',
+    why: 'Worth a decision rather than an application. Everything else about this fits — a festival that takes process seriously, in a register where the physical print matters — but the analogue restriction decides it outright. If the work is shot on film, this is a strong and unusually winnable call. If it is digital, the exhibition strand is closed to you and the portfolio review above is the way in instead. Answer that question once and it settles both entries.',
+    confirmed: false,
+  },
+  {
+    tier: 'soon',
+    name: 'InCadaqués Photo Festival Open Call',
+    edition: '2027 edition',
+    org: 'InCadaqués Photo Festival, Cadaqués, Spain',
+    deadline: null,
+    deadlineNote:
+      'The 2027 call is expected around mid-year; the 2026 deadline is not published in the sources reachable here, and the 2026 festival runs 8–25 October. Applications run through Picter.',
+    fee: 'Verify on the call page',
+    eligibility:
+      'Open to all photographers with no imposed theme. A project of 10 to 15 images. Twenty photographers are selected to exhibit, sharing over €20,000 in combined cash prizes and exhibition support.',
+    link: 'https://www.incadaques.com/',
+    why: 'No theme imposed and twenty places, which makes it one of the more open exhibition routes in Europe, with real money attached. Ranked in the lower half because it is an exhibition call rather than a book or production grant, so it does nothing directly for the manuscript — but a Spanish festival showing in October, the same month Revela\'T runs, makes a single European trip do double work.',
     confirmed: false,
   },
   {
@@ -409,7 +484,7 @@ export const openCalls = [
 export const openCallsNote = {
   title: 'Two things to settle before entering anything',
   body:
-    'First, the publisher clause. Several dummy awards pay out in a publishing contract — Chose Commune at Athens, MAS at Cologne, Breadfield at Landskrona, Nazraeli at LensCulture. With a 2027 Loose Joints book contracted, those may be unenterable or need the publisher\'s sign-off depending on your option and exclusivity terms. Read that clause once and most of this list resolves itself. The awards that carry cleanly alongside a signed publisher are the ones giving unrestricted or production money: W. Eugene Smith, the Guggenheim, Alicia Patterson, CatchLight, Hasselblad, the Images Vevey co-publishing tier, and the LUMA Rencontres production budget. Second, the staging question. Competitions rooted in photojournalism — World Press Photo above all — forbid directed or constructed pictures and will ask for camera originals. A project about the line between staged and real needs you to know which side each individual frame sits on before you submit it anywhere, because the answer decides which of these doors is open.',
+    'First, the publisher clause. Several dummy awards pay out in a publishing contract — Chose Commune at Athens, MAS at Cologne, Breadfield at Landskrona, Nazraeli at LensCulture. With a 2027 Loose Joints book contracted, those may be unenterable or need the publisher\'s sign-off depending on your option and exclusivity terms. Read that clause once and most of this list resolves itself. The awards that carry cleanly alongside a signed publisher are the ones giving unrestricted or production money: W. Eugene Smith, the Guggenheim, Alicia Patterson, CatchLight, Hasselblad, the Images Vevey co-publishing tier, and the LUMA Rencontres production budget. Second, the staging question. Competitions rooted in photojournalism — World Press Photo above all — forbid directed or constructed pictures and will ask for camera originals. A project about the line between staged and real needs you to know which side each individual frame sits on before you submit it anywhere, because the answer decides which of these doors is open. Checked and ruled out this issue: the Ian Parry Photojournalism Grant, open only to photographers aged 24 or under or in full-time study; the FotoEvidence W Award and the PhMuseum Women Photographers Grant, both restricted by gender. They are named here so they do not get suggested back.',
 };
 
 /* ------------------------------------------------------------------ *

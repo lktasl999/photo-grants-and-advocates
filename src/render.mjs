@@ -23,6 +23,13 @@ export function daysBetween(fromIso, toIso) {
   return Math.round((b - a) / 86400000);
 }
 
+/** Cadence is Monday and Thursday, so the next issue follows from this one's
+ *  date rather than being hardcoded into the sign-off. */
+function nextIssueDay(iso) {
+  const dow = new Date(iso + 'T00:00:00Z').getUTCDay(); // 0 Sun … 6 Sat
+  return dow >= 1 && dow < 4 ? 'Thursday' : 'Monday';
+}
+
 const TIERS = [
   {
     key: 'best',
@@ -248,7 +255,7 @@ export function renderHtml({ issue, openCalls, openCallsIntro, openCallsNote, ch
   blocks.push(
     block(
       S2,
-      `<div class="signoff">Next issue Thursday. This is a reminder feed, not a discovery feed: every open call still live and every champion still worth approaching is repeated in full each issue, badged Standing, so nothing important quietly falls off the desk while you are not acting on it. Genuinely new finds are badged New. Anything only leaves the list when its deadline has passed or its fit no longer holds.</div>`,
+      `<div class="signoff">Next issue ${nextIssueDay(issue.date)}. This is a reminder feed, not a discovery feed: every open call still live and every champion still worth approaching is repeated in full each issue, badged Standing, so nothing important quietly falls off the desk while you are not acting on it. Genuinely new finds are badged New. Anything only leaves the list when its deadline has passed or its fit no longer holds.</div>`,
       { keepWithPrev: true }
     )
   );
